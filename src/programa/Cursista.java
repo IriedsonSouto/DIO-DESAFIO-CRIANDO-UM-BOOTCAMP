@@ -5,17 +5,23 @@ import java.util.Optional;
 import java.util.Set;
 
 import Enums.Sexo;
+import Enums.Vinculo;
 
-public class Cursista implements Vinculo{
+public class Cursista extends Pessoa{
 
 	//Atributos e variaveis
     private Set<Atividade> conteudosInscritos = new LinkedHashSet<>();
     private Set<Atividade> conteudosConcluidos = new LinkedHashSet<>();
+    
+    //Metodo construtor 
+    public Cursista(String nome, String email, Sexo sexo, Vinculo vinculo){
+		super(nome, email, sexo, vinculo);
+	}
 
     //Metodo responsavel por pegar pessoa e inscrever no bootcamp
-    public void inscreverBootcamp(Bootcamp bootcamp, Pessoa pessoa){
+    public void inscreverBootcamp(Bootcamp bootcamp){
         this.conteudosInscritos.addAll(bootcamp.getTrilha());
-        bootcamp.getDevsInscritos().add(pessoa);
+        bootcamp.getDevsInscritos().add(this);
     }
 
     //Metodo responsavel por fazer a progreção da pessoa

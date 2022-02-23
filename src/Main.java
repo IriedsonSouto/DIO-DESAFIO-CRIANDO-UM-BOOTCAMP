@@ -12,24 +12,18 @@ public class Main {
   public static void main(String[] args) {
     Scanner leitor = new Scanner(System.in);
     
-    // Instanceando 8 pessoas, duas atribui a Instrutor e seis para Cursista
-    Pessoa pessoa1 = new Pessoa("Carlos", "pessoa1@email.com", Sexo.MASCULINO);
-    Pessoa pessoa2 = new Pessoa("Maria", "pessoa2@email.com", Sexo.FEMININO);
-    pessoa1.setVinculo(new Instrutor());
-    pessoa2.setVinculo(new Instrutor());
+    // Instanceando 8 pessoas, sendo duas Instrutor e seis Cursista
+    Instrutor pessoa1 = new Instrutor("Carlos", "pessoa1@email.com", Sexo.MASCULINO, Vinculo.INSTRUTOR);
+    Instrutor pessoa2 = new Instrutor("Maria", "pessoa2@email.com", Sexo.FEMININO, Vinculo.INSTRUTOR);
     
-    Pessoa pessoa3 = new Pessoa("Jose", "pessoa3@email.com", Sexo.MASCULINO);
-    Pessoa pessoa4 = new Pessoa("Camila", "pessoa4@email.com", Sexo.FEMININO);
-    Pessoa pessoa5 = new Pessoa("Luiz", "pessoa5@email.com", Sexo.MASCULINO);
-    Pessoa pessoa6 = new Pessoa("Joao", "pessoa6@email.com", Sexo.MASCULINO);
-    Pessoa pessoa7 = new Pessoa("Larissa", "pessoa7@email.com", Sexo.FEMININO);
-    Pessoa pessoa8 = new Pessoa("Vanusa", "pessoa8@email.com", Sexo.FEMININO);
-    pessoa3.setVinculo(new Cursista());
-    pessoa4.setVinculo(new Cursista());
-    pessoa5.setVinculo(new Cursista());
-    pessoa6.setVinculo(new Cursista());
-    pessoa7.setVinculo(new Cursista());
-    pessoa8.setVinculo(new Cursista());
+    
+    Cursista pessoa3 = new Cursista("Jose", "pessoa3@email.com", Sexo.MASCULINO, Vinculo.CURSISTA);
+    Cursista pessoa4 = new Cursista("Camila", "pessoa4@email.com", Sexo.FEMININO, Vinculo.CURSISTA);
+    Cursista pessoa5 = new Cursista("Luiz", "pessoa5@email.com", Sexo.MASCULINO, Vinculo.CURSISTA);
+    Cursista pessoa6 = new Cursista("Joao", "pessoa6@email.com", Sexo.MASCULINO, Vinculo.CURSISTA);
+    Cursista pessoa7 = new Cursista("Larissa", "pessoa7@email.com", Sexo.FEMININO, Vinculo.CURSISTA);
+    Cursista pessoa8 = new Cursista("Vanusa", "pessoa8@email.com", Sexo.FEMININO, Vinculo.CURSISTA);
+
     
     //Exibição de um cursista e um instrutor
     System.out.println(pessoa1);
@@ -41,10 +35,9 @@ public class Main {
     Atividade mentoria = new Mentoria("Mentoria1", "Auxilia em atividades");
     curso.setInstrutor(pessoa1); //Adicionei instrutor na atividade
     mentoria.setInstrutor(pessoa2);//Adicionei instrutor na atividade
-    System.out.println();
     
     //Exibição curso que um instrutor expecifico é responsavel
-    System.out.println(pessoa1.getVinculo().getAtividadeResponsavel());
+    System.out.println(pessoa1.getAtividadeResponsavel());
     System.out.println();
     
     //Exibição das atividades
@@ -69,12 +62,12 @@ public class Main {
     bootcamp.setTrilha(trilha); 
     
     //Inscrevi cursistas ao bootcamp
-    pessoa3.getVinculo().inscreverBootcamp(bootcamp, pessoa3);
-    pessoa4.getVinculo().inscreverBootcamp(bootcamp, pessoa4);
-    pessoa5.getVinculo().inscreverBootcamp(bootcamp, pessoa5);
-    pessoa6.getVinculo().inscreverBootcamp(bootcamp, pessoa6);
-    pessoa7.getVinculo().inscreverBootcamp(bootcamp, pessoa7);
-    pessoa8.getVinculo().inscreverBootcamp(bootcamp, pessoa8);
+    pessoa3.inscreverBootcamp(bootcamp);
+    pessoa4.inscreverBootcamp(bootcamp);
+    pessoa5.inscreverBootcamp(bootcamp);
+    pessoa6.inscreverBootcamp(bootcamp);
+    pessoa7.inscreverBootcamp(bootcamp);
+    pessoa8.inscreverBootcamp(bootcamp);
     
     //Exibção do bootcamp e dos Cursistas inscritos
     System.out.println(bootcamp);
@@ -82,22 +75,22 @@ public class Main {
     System.out.println();
     
     //Exibição de um cursista especifico do bootcamp e sua situação de cursos concliudos
-    System.out.println(pessoa3.getVinculo().getConteudosInscritos());
-    System.out.println(pessoa3.getVinculo().getConteudosConcluidos());
+    System.out.println(pessoa3.getConteudosInscritos());
+    System.out.println(pessoa3.getConteudosConcluidos());
     System.out.println();
     
     //Fiz cursista progredir na trilha
-    pessoa3.getVinculo().progredir();
-    pessoa3.getVinculo().progredir();
+    pessoa3.progredir();
+    pessoa3.progredir();
     System.out.println();
     
     //Nova exibição de um cursista especifico do bootcamp e sua situação de cursos concliudos
-    System.out.println(pessoa3.getVinculo().getConteudosInscritos());
-    System.out.println(pessoa3.getVinculo().getConteudosConcluidos());
+    System.out.println(pessoa3.getConteudosInscritos());
+    System.out.println(pessoa3.getConteudosConcluidos());
     System.out.println();
     
     //Exibição do xp final do cursista
-    System.out.println("XP:" + pessoa3.getVinculo().calcularTotalXp());
+    System.out.println("XP:" + pessoa3.calcularTotalXp());
      
   }
 }

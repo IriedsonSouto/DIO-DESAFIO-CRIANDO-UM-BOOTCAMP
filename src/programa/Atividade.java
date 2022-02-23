@@ -10,7 +10,7 @@ public abstract class Atividade {
     private String titulo;
     private String descricao;
 	private TipoAtividade tipo;
-	private Pessoa instrutor;
+	private Instrutor instrutor;
 
 	//Construtores
     public Atividade() {}
@@ -51,11 +51,11 @@ public abstract class Atividade {
         this.descricao = descricao;
     }
 
-	public void setInstrutor(Pessoa instrutor) {
+	public void setInstrutor(Instrutor instrutor) {
 		if(this.instrutor != null){
-			this.instrutor.getVinculo().descadastrarAtividade(this);
+			this.instrutor.descadastrarAtividade(this);
 		}
 		this.instrutor = instrutor;
-		instrutor.getVinculo().cadastrarAtividade(this);
+		instrutor.cadastrarAtividade(this);
 	}   
 }

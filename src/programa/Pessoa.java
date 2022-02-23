@@ -1,6 +1,6 @@
 package programa;
 
-import Enums.Sexo;
+import Enums.*;
 import Exceptions.EmailInvalidoException;
 
 public class Pessoa implements Comparable<Pessoa>{
@@ -15,10 +15,11 @@ public class Pessoa implements Comparable<Pessoa>{
 	// construtores Pessoa
 	public Pessoa(){}
 	
-	public Pessoa(String nome, String email, Sexo sexo){
+	public Pessoa(String nome, String email, Sexo sexo, Vinculo vinculo){
 		this.nome = nome;
 		this.email = email;
-		this.sexo = sexo;	
+		this.sexo = sexo;
+		this.vinculo = vinculo;
 	}
 	
 
@@ -87,7 +88,7 @@ public class Pessoa implements Comparable<Pessoa>{
 				+ "\nTelefone: " + telefone 
 				+ "\nEmail: " + email 
 				+ "\nSexo: " + sexo 
-				+ "\nVinculo: " + vinculo.toString();
+				+ "\nVinculo: " + vinculo;
 	}
 
 }
